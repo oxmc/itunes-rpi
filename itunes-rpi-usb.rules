@@ -1,0 +1,2 @@
+ACTION=="add", SUBSYSTEM=="usb" RUN=="/usr/bin/python3 '/home/pi/detect-ipod.py'"
+ACTION=="remove", SUBSYSTEM=="usb", RUN+="/usr/bin/python3 '/home/pi/eject-ipod.py'"

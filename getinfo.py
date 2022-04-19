@@ -54,7 +54,7 @@ for filename in os.listdir(directory):
                 minfo['title'] = mi['title']
                 #music_info = (minfo)
                 print(file)
-                music_info1 = {f'{file}':minfo}
+                music_info1 = {f'{file}':[minfo]}
                 print(music_info1)
                 music_info2 =re.sub(r'.', '', str(music_info1), count = 1)
                 print(music_info2)

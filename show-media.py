@@ -6,19 +6,15 @@ json_array = json_array['media']
 
 #print(json_array)
 
-pairs = json_array[0].items()
-for key, value in pairs:
-    print(value)
-
 for item in json_array:
     item = "{"+item+"}"
-    print(item)
     item = item.replace("'", '"')
     print(item)
-    js = json.loads(item)
+    js = json.loads(item['floc'])
     print(js)
-    for pDetails in js:
-        print(pDetails)
-        print(pDetails['floc'])
-        print(pDetails['title'])
-        print(pDetails['album'])
+    #print(json.dumps(item, indent = 4, sort_keys=True))
+    for minfo in js:
+        print(minfo)
+        print(minfo['floc'])
+        print(minfo['title'])
+        print(minfo['album'])

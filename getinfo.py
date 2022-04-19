@@ -54,15 +54,15 @@ for filename in os.listdir(directory):
                 minfo['title'] = mi['title']
                 #music_info = (minfo)
                 print(file)
-                music_info1 = {f'{file}':[minfo]}
+                music_info1 = {minfo}
                 print(music_info1)
-                music_info2 =re.sub(r'.', '', str(music_info1), count = 1)
-                print(music_info2)
-                music_info = music_info2[:-1]
+                #music_info2 =re.sub(r'.', '', str(music_info1), count = 1)
+                #print(music_info2)
+                #music_info = music_info2[:-1]
                 #minfo = {file:{**music_info[file], **d}}
                 #music_info = f'{file}":"{music_info}'
-                print(music_info)
-                media_list3.append(music_info)
+                print(music_info1)
+                media_list3.append(music_info1)
                 #media_list2[file] = music_info
                 #deviceinfo = os.popen(f'cat /media/{username}/{drive_name}/iPod_Control/iTunes/DeviceInfo').read().strip()
             #else:

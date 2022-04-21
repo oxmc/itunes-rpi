@@ -16,7 +16,7 @@ drive_list = os.listdir(f'/media/{username}/')
 #print(drive_list)
 
 #Loop through usbs
-for i, drive_name in enumerate(drive_list):
+for drive_name in drive_list:
     #print(i)
     #print(drive_name)
     print(f'/media/{username}/{drive_name}')

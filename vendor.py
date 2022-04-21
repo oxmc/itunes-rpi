@@ -12,7 +12,7 @@ for action, device in monitor:
     print(vendor_id)
     # I know the devices I am looking for have a vendor ID of '22fa'
     if vendor_id in ['o5ac']:
-        print('Detected {} for device with vendor ID {}'.format(action, vendor_id))
+        print(f'Detected {action} for device with vendor ID {vendor_id}')
 
 #import pyudev
 #context = pyudev.Context()

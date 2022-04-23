@@ -21,9 +21,8 @@ def createjsonfile(data, name):
         raise Exception("Provide data to save")
     if istherefile(f'{name}.json'):
         raise Exception("File already exists")
-    else:
-        with open(f'{name}.json', 'w') as json_file:
-            json.dump(data, json_file)
+    with open(f'{name}.json', 'w') as json_file:
+        json.dump(data, json_file)
 
 def createtempfile(data, name):
     if name == "":
@@ -58,20 +57,17 @@ def fixjson(string):
         print("2")
         os.remove(f"{cwd}/json/fixedjson.json")
     createjsonfile(string, f"{cwd}/json/jsontofix")
-    if istherefile(f"{cwd}/json/jsontofix.json"):
-        fr=open(f"{cwd}/json/jsontofix.json")
-        fw=open(f"{cwd}/json/fixedjson.json", "w")
-        for line in fr:
-            json_dat = json.dumps(ast.literal_eval(line))
-            dict_dat = json.loads(json_dat)
-            json.dump(dict_dat, fw)
-            fw.write("\n")
-        fw.close()
-        fr.close()
-        resp=open(f"{cwd}/json/fixedjson.json", "r")
-        res=resp.read()
-        os.remove(f"{cwd}/json/jsontofix.json")
-        os.remove(f"{cwd}/json/fixedjson.json")
-        return res
-    else:
+    if not istherefile(f"{cwd}/json/jsontofix.json"):
         raise Exception("No file exists at: '{cwd}/json/jsontofix.json'")
+    with open(f"{cwd}/json/jsontofix.json") as fr:
+        with open(f"{cwd}/json/fixedjson.json", "w") as fw:
+            for line in fr:
+                json_dat = json.dumps(ast.literal_eval(line))
+                dict_dat = json.loads(json_dat)
+                json.dump(dict_dat, fw)
+                fw.write("\n")
+    resp=open(f"{cwd}/json/fixedjson.json", "r")
+    res=resp.read()
+    os.remove(f"{cwd}/json/jsontofix.json")
+    os.remove(f"{cwd}/json/fixedjson.json")
+    return res

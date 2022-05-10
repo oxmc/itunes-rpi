@@ -1,4 +1,6 @@
 eyed3
 pyudev
-screeninfo
 ast
+tk
+screeninfo
+ttkthemes

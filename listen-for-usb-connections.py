@@ -49,12 +49,10 @@ while 1:
                 print("IPOD FOUND")
                 isipod = True
                 exec(os.popen(f"python3 getinfo.py '{devicejson}'"))
-                device = None
             else:
                 print("Not an ipod, is apple device")
                 isipod = False
-                device = None
         else:
             print("Not an apple device, returning to listening for new usb connections")
-            device = None
+        device = None
 usbdev.stopListener(observer)

@@ -73,7 +73,7 @@ def stopListener(observer):
 #you can change how the path gets calulated.
 def getMountPathUsbDevice():
     global USBDEV_DEVPATH
-    if not isDeviceConnected() or USBDEV_DEVPATH == None:
+    if not isDeviceConnected() or USBDEV_DEVPATH is None:
         return None
     #check if the dev path exists
     if os.path.exists(USBDEV_DEVPATH):
@@ -81,8 +81,6 @@ def getMountPathUsbDevice():
         if not os.path.exists('/media/{username}mp'):
             os.makedirs('mp')
         #mount the dev path to the folder
-        os.system("mount " + USBDEV_DEVPATH + " mp")
-        #return the path to the folder from root
-        truePath = os.getcwd() + '/mp'
-        return truePath
+        os.system(f"mount {USBDEV_DEVPATH} mp")
+        return f'{os.getcwd()}/mp'
     return None

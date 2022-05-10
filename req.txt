@@ -1,0 +1,4 @@
+eyed3
+pyudev
+screeninfo
+ast
